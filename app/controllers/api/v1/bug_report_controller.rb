@@ -29,9 +29,17 @@ module API
           })
         end
 
-        desc 'Lista todos os reports dos usuarios'
+        desc 'Lista todos os reports não concluidos/fechados dos usuarios'
         get do
-          BugReport.all
+          BugReport
+            .where("status <> 'concluido'")
+            .where("status <> 'fechado'")
+            .order(created_at: :desc)
+        end
+
+        desc 'Lista todos os reports, incluindo fechados/concluidos'
+        get 'all' do
+          BugReport.all.order(created_at: :desc)
         end
 
         desc 'Retorna o report escolhido'
