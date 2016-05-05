@@ -1,6 +1,8 @@
 source 'https://rubygems.org'
 
 gem 'grape'
+gem 'grape-swagger'
+gem 'grape-swagger-rails'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.6'
