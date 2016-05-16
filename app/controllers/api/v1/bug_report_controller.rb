@@ -8,7 +8,7 @@ module API
 
         desc 'Retorna todas as categorias de BugReport'
         get do
-          BugReportCategory.pluck(:id, :name)
+          BugReportCategory.select(:id, :name)
         end
       end
 

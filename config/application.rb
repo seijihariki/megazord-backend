@@ -26,5 +26,14 @@ module Backend
     GrapeSwaggerRails.options.url      = "/api/swagger_doc.json"
     GrapeSwaggerRails.options.app_name = 'Example'
     GrapeSwaggerRails.options.app_url  = '/'
+
+    config.middleware.use Rack::Cors do
+        allow do
+          origins '*'
+          # location of your API
+          resource '/api/v1/*', :headers => :any, :methods => [:get, :post, :options, :put]
+        end
+    end
   end
 end
+
