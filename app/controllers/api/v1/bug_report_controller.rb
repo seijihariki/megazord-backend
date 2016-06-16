@@ -10,6 +10,14 @@ module API
         get do
           BugReportCategory.select(:id, :name)
         end
+
+        desc 'Cria uma categoria de BugReport'
+        params do
+          requires :name, type: String
+        end
+        post do
+          BugReportCategory.create!({ name: params[:name] })
+        end
       end
 
       resource :bug_report do
