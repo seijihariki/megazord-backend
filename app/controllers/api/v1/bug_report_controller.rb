@@ -18,6 +18,25 @@ module API
         post do
           BugReportCategory.create!({ name: params[:name] })
         end
+
+        desc 'Deleta uma categoria de BugReport'
+        params do
+          requires :id, type: Integer
+        end
+        delete ':id' do
+          BugReportCategory.find(params[:id]).destroy!
+        end
+
+        desc 'Edita uma categoria'
+        params do
+          requires :id, type: Integer
+          requires :name, type: String
+        end
+        put ':id' do
+          BugReportCategory.find(params[:id]).update!({
+            name: params[:name]
+          })
+        end   
       end
 
       resource :bug_report do
