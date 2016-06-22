@@ -5,7 +5,7 @@ module API
       format :json
 
       resource :user do
-        desc 'Retorna todas as categorias de BugReport'
+        desc 'Retorna o usuario logado'
         get do
           request.env['REMOTE_USER']
         end
