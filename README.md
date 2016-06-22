@@ -9,12 +9,12 @@ Sistema Megazord da Rede Linux baseado em *SOA* para gerenciar usuarios e comput
 
 ## Instalação
 
-    build install
-    rake db:migrate
-    rake db:seed
+    bundle install --deployment
+    bundle exec rake db:migrate
+    bundle exec rake db:seed
 
 ## Uso
 
 `rails server`
 
-http://localhost:3000/api/docs para consultar os chamadas da API
+https://localhost:3000/api/docs para consultar os chamadas da API
