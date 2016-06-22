@@ -110,6 +110,7 @@ GEM
     multi_xml (0.5.5)
     mustermann19 (0.4.3)
       enumerable-lazy
+    net-ldap (0.14.0)
     nokogiri (1.6.7.2)
       mini_portile2 (~> 2.0.0.rc2)
     rack (1.6.4)
@@ -198,6 +199,7 @@ DEPENDENCIES
   grape-swagger-rails
   jbuilder (~> 2.0)
   jquery-rails
+  net-ldap
   rails (= 4.2.6)
   sass-rails (~> 5.0)
   sdoc (~> 0.4.0)
