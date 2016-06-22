@@ -11,6 +11,14 @@ module API
           BugReportCategory.select(:id, :name)
         end
 
+        desc 'Retorna a categoria escolhida'
+        params do
+          requires :id, type: Integer
+        end
+        get ':id' do
+          BugReportCategory.find(params[:id])
+        end
+
         desc 'Cria uma categoria de BugReport'
         params do
           requires :name, type: String
