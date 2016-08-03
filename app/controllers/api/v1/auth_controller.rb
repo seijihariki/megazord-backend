@@ -21,9 +21,9 @@ module API
           ldap.port = 389
           ldap.auth "cn=admin,dc=linux,dc=ime,dc=usp,dc=br", "123"
           if ldap.bind
-            print "success"
+            p "success"
           else
-            print "fail"
+            p "fail"
           end
           
         end
