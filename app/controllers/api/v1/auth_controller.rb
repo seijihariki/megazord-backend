@@ -17,9 +17,9 @@ module API
         get 'ldap' do
 
           ldap = Net::LDAP.new
-          ldap.host = '192.168.240.92'
-          ldap.port = 389
-          ldap.auth "cn=admin,dc=linux,dc=ime,dc=usp,dc=br", "123"
+          ldap.host = 'overwatch.linux.ime.usp.br'
+          ldap.port = 6002
+          ldap.auth "cn=admin,dc=linux,dc=ime,dc=usp,dc=br", "adoroPassatempo"
           if ldap.bind
             p "success"
           else
