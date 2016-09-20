@@ -11,3 +11,5 @@ pipelines:
           - ruby --version
           - bundler --version
           - bundle install
+          - rake db:migrate RAILS_ENV=test
+          - bundle exec rspec

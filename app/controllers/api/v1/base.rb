@@ -5,7 +5,7 @@ module API
       mount API::V1::BugReportController
       mount API::V1::AuthController
 
-      add_swagger_documentation base_path: "/api/v1/",
+      add_swagger_documentation base_path: "/api",
                                 api_version: 'v1',
                                 hide_documentation_path: true,
                                 info: {
