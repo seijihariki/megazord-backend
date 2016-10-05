@@ -4,6 +4,7 @@ gem 'grape'
 gem 'grape-swagger'
 gem 'grape-swagger-rails'
 gem 'net-ldap'
+gem 'figaro'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.6'
