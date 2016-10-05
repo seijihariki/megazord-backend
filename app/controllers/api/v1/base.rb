@@ -3,7 +3,7 @@ module API
     class Base < Grape::API
 
       mount API::V1::BugReportController
-      mount API::V1::AuthController
+      mount API::V1::UserController
 
       add_swagger_documentation base_path: "/api",
                                 api_version: 'v1',
