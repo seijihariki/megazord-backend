@@ -19,7 +19,7 @@ module API
           user = params[:user] || request.env['REMOTE_USER'] # Se usuario nao for especificado, escolhe o que estiver logado
           
           # Filtro de text do LDAP
-          text = `bash #{ENV['scripts_path']}/user/find_user.sh -h #{ENV['ldap_host']} -p #{ENV['ldap_port']} -u #{user}`.scan(/^(?!objectClass)(?!#)([\w]+): ([^:].*)/)
+          text = `bash #{ENV['scripts_path']}/find_user.sh -h #{ENV['ldap_host']} -p #{ENV['ldap_port']} -u #{user}`.scan(/^(?!objectClass)(?!#)([\w]+): ([^:].*)/)
 
           # Transforma texto em tabela de simbolos
           user = {}
@@ -50,7 +50,7 @@ module API
         end
         get 'is_admin' do
           user = params[:user] || request.env['REMOTE_USER']
-          (Integer(`bash #{ENV['scripts_path']}/user/is_admin.sh -h #{ENV['ldap_host']} -p #{ENV['ldap_port']} #{user}`) == 1).to_json
+          (Integer(`bash #{ENV['scripts_path']}/is_admin.sh -h #{ENV['ldap_host']} -p #{ENV['ldap_port']} #{user}`) == 1).to_json
           # ldap = Net::LDAP.new
           # ldap.host = 'overwatch.linux.ime.usp.br'
           # ldap.port = 6002
