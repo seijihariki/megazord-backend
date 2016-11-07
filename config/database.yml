@@ -24,6 +24,6 @@ production:
   <<: *default
   database: db/production.sqlite3
 
-development:
+staging:
   <<: *default
   database: db/staging.sqlite3
