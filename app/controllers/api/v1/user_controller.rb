@@ -61,6 +61,10 @@ module API
           #   p "fail"
           # end  
         end
+
+        get 'teste' do
+          p Rails.env
+        end
       end
 
     end
