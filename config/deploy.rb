@@ -10,6 +10,7 @@ set :branch, ENV['BRANCH'] || 'develop'
 
 # Default deploy_to directory is /var/www/my_app_name
 set :deploy_to, '/var/www/megazord'
+set :user, "www-data"
 
 # Default value for :scm is :git
 set :scm, :git
