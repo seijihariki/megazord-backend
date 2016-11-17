@@ -1,7 +1,0 @@
-development:
-  scripts_path: /home/bcc/rasouzas/Workspace/Megazord/scripts
-  ldap_host: overwatch.linux.ime.usp.br
-  ldap_port: 6002
-
-production:
-  scripts_path: /var/www/megazord/scripts
