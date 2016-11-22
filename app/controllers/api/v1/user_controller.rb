@@ -81,7 +81,18 @@ module API
           return data.drop(1)
         end
 
-        get ''
+        get 'maquinas' do
+          text = `ssh wily rwho` 
+          data = Hash[
+            text.split("\n").map do |pair|
+              v, k = pair.split(' ', 2)
+              k = k.split(':', 2)[0]
+              [k, v]
+            end
+          ]
+
+          data
+        end
 
         get 'env' do
           p Rails.env
