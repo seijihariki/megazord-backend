@@ -50,7 +50,7 @@ module API
         end
         get 'is_admin' do
           user = params[:user] || request.env['REMOTE_USER']
-          (Integer(`bash #{Rails.application.secrets.scripts_path}/is_admin.sh -h #{Rails.application.secrets.ldap_host} -p #{Rails.application.secrets.ldap_port} #{user}`) == 1).to_json
+          (Integer(`bash #{Rails.application.secrets.scripts_path}/is_admin.sh #{user} #{Rails.application.secrets.ldap_host} #{Rails.application.secrets.ldap_port}`) == 1).to_json
           # ldap = Net::LDAP.new
           # ldap.host = 'overwatch.linux.ime.usp.br'
           # ldap.port = 6002
@@ -62,7 +62,28 @@ module API
           # end  
         end
 
-        get 'teste' do
+        get 'all' do
+          text = `bash #{Rails.application.secrets.scripts_path}/list_users.sh #{Rails.application.secrets.ldap_host} #{Rails.application.secrets.ldap_port}`
+          data = []
+          text.split("\n\n").each do |el|
+            data.push(Hash[
+              el.split("\n").map do |pair|
+                k, v = pair.split(': ', 2)
+                if (k == "homeDirectory")
+                  k = "grupo"
+                  v = v.split('/')[2]
+                end
+                [k, v]
+              end
+            ])
+          end
+
+          return data.drop(1)
+        end
+
+        get ''
+
+        get 'env' do
           p Rails.env
         end
       end
