@@ -82,7 +82,7 @@ module API
         end
 
         get 'maquinas' do
-          text = `ssh wily rwho` 
+          text = `rwho` 
           data = Hash[
             text.split("\n").map do |pair|
               v, k = pair.split(' ', 2)
